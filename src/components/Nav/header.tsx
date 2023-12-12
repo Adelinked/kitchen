@@ -74,12 +74,12 @@ const Header = () => {
               <div className="relative" key={cat.name}>
                 <Link
                   href={`/recipes/${cat.name}`}
-                  className="hidden peer font-medium text-gray-900 dark:text-gray-100 md:block uppercase   "
+                  className="peer font-medium text-gray-900 dark:text-gray-100 md:block uppercase   "
                 >
                   {cat.name}
                 </Link>
 
-                <div className=" border-[1px] border-primary-500 group opacity-0 group transform  z-50  peer-hover:opacity-100  hover:opacity-100  transition-opacity ease-out duration-400 absolute flex flex-col gap-4 py-4 mt-2 bg-white dark:bg-gray-900">
+                <div className="hidden border-[1px] border-primary-500  z-50 peer-hover:flex  hover:flex   absolute  flex-col gap-4 py-4  bg-white dark:bg-gray-900">
                   {[...cat.subcategories, "View All"].map((subcat) => (
                     <Link
                       key={subcat}
