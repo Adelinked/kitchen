@@ -3,10 +3,15 @@ import Link from "next/link";
 import React from "react";
 import Tag from "../Tag";
 import { slug } from "github-slugger";
+import { categories } from "data/categories";
 
 const HomeCoverSection = ({ blog }) => {
   if (!blog) return null;
+  const tag = blog.tags[0];
 
+  const category = categories.find((cat) =>
+    cat.subcategories.includes(tag)
+  )?.name;
   const imageSrc = blog?.image?.filePath.replace("../public", "");
   return (
     <div className="w-full inline-block ">
@@ -29,7 +34,7 @@ const HomeCoverSection = ({ blog }) => {
         />
 
         <div className="w-full lg:w-3/4 p-6 sm:p-8 md:p-12  lg:p-16 flex flex-col items-start justify-center z-0 text-light">
-          <Tag link={`/category/${slug(blog?.tags[0])}`} name={blog.tags[0]} />
+          <Tag link={`/recipes/${category}/${slug(tag)}`} name={blog.tags[0]} />
           <Link href={`/${blog.slug}`} className="mt-6">
             <h1 className="font-bold capitalize text-lg sm:text-xl md:text-3xl lg:text-4xl">
               <span className=" ">{blog.title}</span>

@@ -4,9 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { slug } from "github-slugger";
 import siteMetadata from "data/siteMetadata";
+import { categories } from "data/categories";
 
 const BlogLayoutOne = ({ blog }) => {
   if (!blog) return null;
+  const tag = blog.tags[0];
+
+  const category = categories.find((cat) =>
+    cat.subcategories.includes(tag)
+  )?.name;
 
   return (
     <div className="group inline-block overflow-hidden rounded-xl relative h-full">
@@ -28,9 +34,9 @@ const BlogLayoutOne = ({ blog }) => {
         className="w-full h-full object-center object-cover rounded-xl group-hover:scale-105 transition-all ease duration-300"
         sizes="(max-width: 1180px) 100vw, 50vw"
       />
-      <div className="w-full absolute bottom-0 p-4 xs:p-6 sm:p-10 z-20">
+      <div className="w-full absolute bottom-0 p-4 xs:p-6 sm:p-10 z-20 ">
         <Tag
-          link={`/category/${slug(blog.tags[0])}`}
+          link={`/recipes/${category}/${slug(tag)}`}
           name={blog.tags[0]}
           className="px-6 text-xs  sm:text-sm py-1 sm:py-2  "
         />
