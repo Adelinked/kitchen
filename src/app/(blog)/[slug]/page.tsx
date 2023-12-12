@@ -9,7 +9,7 @@ import BlogHeader from "@/components/Blog/BlogHeader";
 //import RelatedPostsColumn from "@/components/Blog/RelatedPostsColumn";
 
 import dynamic from "next/dynamic";
-import ShareButtons from "@/components/social-icons/shareButtons";
+//import ShareButtons from "@/components/social-icons/shareButtons";
 //import { importFileAsync } from "@/utils";
 
 //import BlogHeader from "@/components/Blog/BlogHeader";
@@ -27,6 +27,13 @@ const RelatedPostsColumn = dynamic(
   }
 );
 
+const ShareButtons = dynamic(
+  () => import("@/components/social-icons/shareButtons"),
+  {
+    loading: () => <></>,
+    ssr: false,
+  }
+);
 //import post from "@/posts/blog__automating-repetitive-tasks-productivity-hacks-for-developers.mdx.json";
 
 /*const BlogHeader = dynamic(() => import("@/components/Blog/BlogHeader"), {
@@ -164,13 +171,13 @@ export default async function Page({ params }) {
         <BlogDetails blog={blog} slug={params.slug} />
 
         <BlogMajor blog={blog} />
-        {/*<ShareButtons
+        <div data-section-id="share-on-social" />
+        <ShareButtons
           recipeTitle={blog?.title}
           recipeUrl={siteMetadata.siteUrl + blog?.slug}
-  />*/}
-
+        />
         <div className="grid grid-cols-12 gap-y-8 lg:gap-8 sxl:gap-16 mt-8 px-5 md:px-10">
-          <div className="col-span-12 lg:col-span-3 mt-4">
+          <div className=" col-span-12 lg:col-span-3 mt-4">
             <details
               className="border-[1px] border-solid  text-dark dark:text-light rounded-lg p-4 sticky top-20 max-h-[80vh] overflow-hidden overflow-y-auto"
               open
@@ -206,7 +213,9 @@ export default async function Page({ params }) {
               </ul>
             </details>
           </div>
+
           <RenderMdx blog={blog} />
+
           <div className="col-span-12 lg:col-span-3 mt-4 ">
             <div className="h-[80vh] bg-primary-600 flex justify-center items-center ">
               <h2 className="text-3xl font-bold text-white">Moh Ads</h2>
@@ -223,6 +232,7 @@ export default async function Page({ params }) {
           </div>
         </div>
         <div data-section-id="related-posts" />
+
         <RelatedPosts category={blog?.tags?.[0]} exclude={blog.slug} />
       </article>
     </>
