@@ -55,16 +55,13 @@ const Header = () => {
         <div className="md:min-w-[200px]">
           <Link href="/" title={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
-              <div className="mr-1">
+              <div className="mr-0">
                 <Logo />
               </div>
-              {typeof siteMetadata.headerTitle === "string" ? (
-                <div className="hidden text-2xl font-semibold sm:block text-gray-900 dark:text-gray-100">
-                  {siteMetadata.headerTitle}
-                </div>
-              ) : (
-                siteMetadata.headerTitle
-              )}
+
+              <div className="hidden text-2xl font-semibold sm:block text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                {siteMetadata.headerTitle}
+              </div>
             </div>
           </Link>
         </div>
