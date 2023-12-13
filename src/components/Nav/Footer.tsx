@@ -4,6 +4,7 @@ import SocialIcon from "@/components/social-icons";
 import Logo from "../Logo";
 import { footerNavLinks, headerNavLinks } from "data/navLinks";
 import dynamic from "next/dynamic";
+import { categories } from "data/categories";
 
 const ScrollToTop = dynamic(() => import("../scrollToTop"), {
   loading: () => <></>,
@@ -12,8 +13,8 @@ const ScrollToTop = dynamic(() => import("../scrollToTop"), {
 export default function Footer() {
   return (
     <>
-      <footer className="bg-gray-900 py-8 px-20 mt-16 flex flex-col text-white">
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-28 lg:gap-48 xl:gap-64 mb-16">
+      <footer className="bg-gray-900 py-8 px-[70px] mt-16 flex flex-col text-white">
+        <div className="flex flex-col md:flex-row  md:items-start gap-10 md:gap-28 lg:gap-48 xl:gap-64 mb-16">
           <div className="flex flex-col  ">
             <div className="flex items-center pl-2 mb-3 mt-[-7px]">
               <Logo blackBg size={40} />
@@ -26,21 +27,21 @@ export default function Footer() {
             </span>
             <span className="font-light">{siteMetadata.email}</span>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col   gap-2">
             <h3 className=" uppercase text-white text-lg mb-2">Categories</h3>
-            {headerNavLinks
-              .filter((link) => link.href !== "/")
-              .map((link) => (
+
+            {categories.map((cat) => (
+              <div key={cat.name}>
                 <Link
-                  key={link.title}
-                  href={link.href}
+                  href={`/recipes/${cat.name}`}
                   className=" font-medium uppercase text-gray-400 hover:text-white  "
                 >
-                  {link.title}
+                  {cat.name}
                 </Link>
-              ))}
+              </div>
+            ))}
           </div>
-          <div className="flex flex-col gap-2 ml-[-48px] md:ml-0 ">
+          <div className="flex flex-col gap-2  md:ml-0 ">
             <h3 className=" uppercase text-white text-lg mb-2 ">Company</h3>
             {footerNavLinks
               .filter((link) => link.href !== "/")

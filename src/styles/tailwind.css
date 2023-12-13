@@ -89,6 +89,10 @@ input:-webkit-autofill:focus {
   animation: slideOutRightAnimation 0.2s ease-in-out forwards;
 }
 
+.animateMenu {
+  scale: 0.005;
+}
+
 code {
   counter-reset: line;
 }

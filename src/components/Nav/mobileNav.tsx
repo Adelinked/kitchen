@@ -2,8 +2,10 @@
 import { useRef, useEffect } from "react";
 import Link from "next/link";
 import Logo from "../Logo";
-import { footerNavLinks, headerNavLinks } from "data/navLinks";
+import { footerNavLinks } from "data/navLinks";
 import siteMetadata from "data/siteMetadata";
+import { categories } from "data/categories";
+import Menu from "./Menu";
 
 const MobileNav: React.FC<{
   displayListMenu: boolean;
@@ -70,23 +72,47 @@ const MobileNav: React.FC<{
         }
       }}
     >
-      <div className="absolute left-[-30px] w-[250px] h-screen bg-white dark:bg-gray-950 overflow-y-hidden ">
+      <div className="absolute left-[-30px] w-[250px] max-h-screen  bg-white dark:bg-gray-950 overflow-y-auto   ">
         <Link href="/" className="flex items-center ml-[30px] mt-[0px]">
           <Logo />
         </Link>
-        <nav className=" pt-12 px-6 h-full text-black dark:text-white">
-          <div>
-            {headerNavLinks.map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                className="block hover:text-primary-500  cursor-pointer font-medium  uppercase leading-[22px] mb-2"
-                onClick={closeListMenu}
-              >
-                {link.title}
-              </Link>
-            ))}
-          </div>
+        <nav className=" pt-10 px-6 h-full text-black dark:text-white">
+          <Link
+            href={`/`}
+            className="block hover:text-primary-500  cursor-pointer font-medium  uppercase leading-[22px] mb-2"
+            onClick={closeListMenu}
+          >
+            Home
+          </Link>
+          {categories.map((cat) => (
+            <div key={cat.name}>
+              <Menu>
+                <Link
+                  href={`/recipes/${cat.name}`}
+                  className="block hover:text-primary-500  cursor-pointer font-medium  uppercase leading-[22px] mb-2"
+                  onClick={closeListMenu}
+                >
+                  {cat.name}
+                </Link>
+                <>
+                  {cat.subcategories.map((subCat) => (
+                    <Link
+                      key={subCat}
+                      href={`/recipes/${cat.name}/${subCat.replaceAll(
+                        " ",
+                        "-"
+                      )}`}
+                      className="block hover:text-primary-500 cursor-pointer leading-[22px] mb-2 capitalize "
+                      onClick={closeListMenu}
+                    >
+                      {subCat}
+                    </Link>
+                  ))}
+                </>
+              </Menu>
+            </div>
+          ))}
+
           <div>
             <h3 className=" uppercase text-black dark:text-white text-lg mb-2 mt-6 font-bold">
               Company
