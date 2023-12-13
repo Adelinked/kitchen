@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row  md:items-start gap-10 md:gap-28 lg:gap-48 xl:gap-64 mb-16">
           <div className="flex flex-col  ">
             <div className="flex items-center pl-2 mb-3 mt-[-7px]">
-              <Logo blackBg size={40} />
+              <Logo size={40} />
               <h2 className="ml-2 font-bold text-xl tracking-widest">
                 {siteMetadata.brandName}
               </h2>

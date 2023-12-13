@@ -10,7 +10,6 @@ import BlogHeader from "@/components/Blog/BlogHeader";
 
 import dynamic from "next/dynamic";
 //import ShareButtons from "@/components/social-icons/shareButtons";
-//import { importFileAsync } from "@/utils";
 
 //import BlogHeader from "@/components/Blog/BlogHeader";
 
@@ -34,7 +33,6 @@ const ShareButtons = dynamic(
     ssr: false,
   }
 );
-//import post from "@/posts/blog__automating-repetitive-tasks-productivity-hacks-for-developers.mdx.json";
 
 /*const BlogHeader = dynamic(() => import("@/components/Blog/BlogHeader"), {
   loading: () => (
@@ -48,26 +46,11 @@ const RenderMdx = dynamic(() => import("@/components/Blog/RenderMdx"), {
 });*/
 
 export async function generateStaticParams() {
-  //const path = process.cwd() + "\\.contentlayer\\generated\\Blog";
-  //const blogsNames = await getBlogsNames(path);
-  //const blogsNames = await importFileAsync("data/blogsNames.json");
-  /*const blogsNames = await import("data/blogsNames.json").then(
-    (res) => res.default
-  );
-  //console.log("adelllllllllll",blogsNames.map((blogName) => ({ slug: blogName })));
-  return blogsNames.map((blogName) => ({ slug: blogName }));*/
-
-  //console.log(allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath })));
-
-  return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
+  return allBlogs.map((blog) => ({ slug: blog.slug }));
+  //return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
 }
 
 export async function generateMetadata({ params }) {
-  /*const path =
-    process.cwd() +
-    `/.contentlayer/generated/Blog/blog__${params.slug}.mdx.json`; //path = "banana.json";
-  const blog = await importFileAsync(path);*/
-
   const blogSlug = decodeURI(params.slug);
   const blog = allBlogs.find((p) => p.slug === blogSlug);
   if (!blog) {
@@ -118,15 +101,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  /*console.log(params);
-  const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
-  console.log(blog);*/
   const blogSlug = decodeURI(params.slug);
   const blog = allBlogs.find((p) => p.slug === blogSlug);
-  /*const path =
-    process.cwd() +
-    `/.contentlayer/generated/Blog/blog__${params.slug}.mdx.json`;
-  const blog = await importFileAsync(path);*/
 
   if (!blog) {
     return;

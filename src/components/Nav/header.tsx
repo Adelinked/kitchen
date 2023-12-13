@@ -7,7 +7,7 @@ import { categories } from "data/categories";
 import Link from "../Link";
 //import MobileNav from './MobileNav'
 import SearchButton from "../SearchButton";
-//import Logo from "../Logo";
+import Logo from "../Logo";
 //import { ThemeSwitcher } from "../themeSwitcher";
 import { useState } from "react";
 import HumburgerMenu from "./hamburgerMenu";
@@ -25,10 +25,10 @@ const ThemeSwitcher = dynamic(() => import("../themeSwitcher"), {
   ssr: false,
 });
 
-const Logo = dynamic(() => import("../Logo"), {
+/*const Logo = dynamic(() => import("../Logo"), {
   loading: () => <></>,
   ssr: false,
-});
+});*/
 
 /*const HumburgerMenu = dynamic(() => import("../hamburgerMenu"), {
   loading: () => <></>,

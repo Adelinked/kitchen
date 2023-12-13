@@ -1,39 +1,26 @@
 import { allBlogs } from "contentlayer/generated";
 import BlogLayoutThree from "@/components/Blog/BlogLayoutThree";
 import Categories from "@/components/Blog/Categories";
-import GithubSlugger, { slug } from "github-slugger";
+import { slug } from "github-slugger";
 
 import { categories } from "data/categories";
 import Link from "next/link";
 
-const slugger = new GithubSlugger();
-
-export async function generateStaticParams({ params }) {
-  const categories = [] as string[];
-  const paths = [{ slug: "all" }];
-
-  allBlogs.map((blog) => {
-    if (!blog) return;
-    if (blog.isPublished) {
-      blog.tags?.map((tag) => {
-        let slugified = slugger.slug(tag);
-        if (!categories.includes(slugified)) {
-          categories.push(slugified);
-          paths.push({ slug: slugified });
-        }
-      });
-    }
+export async function generateStaticParams() {
+  const paths = [] as any;
+  categories.forEach((category) => {
+    category.subcategories?.forEach((subcategory) => {
+      paths.push({ category: category.name, slug: subcategory });
+    });
   });
-
   return paths;
 }
-
 export async function generateMetadata({ params }) {
   return {
-    title: `${params.slug.replaceAll("-", " ")} Blogs`,
+    title: `${params.slug.replaceAll("-", " ")} recipes`,
     description: `Learn more about ${
-      params.slug === "all" ? "technologies" : params.slug
-    } through our collection of expert blogs and tutorials`,
+      params.slug === "all" ? "recipes" : params.slug
+    } through our collection of recipes`,
   };
 }
 

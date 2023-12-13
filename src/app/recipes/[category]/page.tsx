@@ -5,36 +5,21 @@ import { slug } from "github-slugger";
 
 import { categories } from "data/categories";
 
-/*export async function generateStaticParams({ params }) {
-  console.log("hi", params);
-  const categories = [] as string[];
-  const paths = [{ slug: "all" }];
+export async function generateStaticParams() {
+  return categories.map((c) => ({
+    category: c.name,
+  }));
+}
 
-  allBlogs.map((blog) => {
-    if (!blog) return;
-    if (blog.isPublished) {
-      blog.tags?.map((tag) => {
-        let slugified = slugger.slug(tag);
-        if (!categories.includes(slugified)) {
-          categories.push(slugified);
-          paths.push({ slug: slugified });
-        }
-      });
-    }
-  });
-
-  return paths;
-}*/
-
-/*export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }) {
   return {
-    title: `${params.slug.replaceAll("-", " ")} Blogs`,
+    title: `${params.category.replaceAll("-", " ")} Recipes`,
     description: `Learn more about ${
-      params.slug === "all" ? "technologies" : params.slug
-    } through our collection of expert blogs and tutorials`,
+      params.category === "all" ? "food" : params.category
+    } through our collection of recipes `,
   };
 }
-*/
+
 const CategoryPage = ({ params }) => {
   const allCategories = [
     "all",
