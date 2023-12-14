@@ -1,6 +1,7 @@
 import siteMetadata from "data/siteMetadata";
+import { MetadataRoute } from "next";
 
-export default function manifest() {
+export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteMetadata.title,
     short_name: siteMetadata.title,

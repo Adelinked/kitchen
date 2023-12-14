@@ -57,6 +57,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [siteMetadata.socialBanner],
   },
+  other: {
+    amp: "hybrid",
+  },
 };
 export default function RootLayout({ children }) {
   return (
