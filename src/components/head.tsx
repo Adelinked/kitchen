@@ -31,7 +31,12 @@ export const Head = () => {
         media="(prefers-color-scheme: dark)"
         content="#000"
       />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        href="/feed.xml"
+        title="TastyMingle RSS Feed"
+      />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta
         name="theme-color"

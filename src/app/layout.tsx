@@ -69,8 +69,6 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <Head />
-
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-white text-black antialiased  dark:bg-gray-950 dark:text-white ">
         <ThemeProvider attribute="class" enableSystem>
           {/*<SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
