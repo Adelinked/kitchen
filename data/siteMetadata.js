@@ -5,8 +5,7 @@ const siteMetadata = {
   brandName: "Tasty Mingle",
   companyAdress: " 1600 Amphitheatre Parkway Mountain View, CA, United States",
   headerTitle: "Tasty Mingle",
-  description:
-    "Where Every Recipe is a Tasty Tale! TastyMingle.com — Stirring Connections, Savoring Creations. Let's Cook Up Joy Together!",
+  description: "Where Every Recipe is a Tasty Tale!",
   language: "en-us",
   theme: "system", // system, dark or light
   siteUrl: "https://TastyMingle.com",

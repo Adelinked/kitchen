@@ -33,7 +33,7 @@ const RelatedPosts = ({ category, exclude }) => {
     <>
       {renderedRelatedPosts && (
         <section
-          className="w-full  mt-16 sm:mt-24  md:mt-32 px-5 sm:px-10 md:px-24  sxl:px-32 flex flex-col items-center justify-center"
+          className="w-full mt-16 sm:mt-24 md:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32 flex flex-col items-center justify-center"
           data-section-id="related-posts"
         >
           {renderedRelatedPosts && (

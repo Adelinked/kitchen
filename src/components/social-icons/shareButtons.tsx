@@ -44,6 +44,15 @@ const ShareButtons = ({ recipeTitle, recipeUrl, size = 6 }) => {
     );
   };
 
+  const shareOnPinterest = () => {
+    window.open(
+      ` https://pinterest.com/pin/create/button/?url=${encodeURIComponent(
+        recipeUrl
+      )}`,
+      "_blank"
+    );
+  };
+
   const [renderedShareButtons, setRendredShareButtons] = useState(false);
 
   const intersectingSection = useIntersectingSection({
@@ -91,10 +100,9 @@ const ShareButtons = ({ recipeTitle, recipeUrl, size = 6 }) => {
 
           {/* LinkedIn icon */}
           <button
-            onClick={shareOnLinkedIn}
+            onClick={shareOnPinterest}
             aria-label="Share on Pinterest"
             title="Share on Pinterest"
-            className="text-blue-600 hover:text-blue-800"
           >
             <FaPinterest
               className={`text-red-500 hover:text-red-700 w-${size} h-${size} `}
