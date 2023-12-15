@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "@/styles/tailwind.css";
-//import "pliny/search/algolia.css";
 import siteMetadata from "data/siteMetadata";
 import { Head } from "@/components/head";
 import { ThemeProvider } from "@/providers/themeProvider";
 import Header from "@/components/Nav/header";
 
-//import { SearchProvider, SearchConfig } from "pliny/search";
 import Footer from "@/components/Nav/Footer";
 import { TopHeader } from "@/components/Nav/topHeader";
 import Main from "@/components/main";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+//import SearchProvider from "@/providers/searchProvider";
 const font = Roboto({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -71,13 +70,10 @@ export default function RootLayout({ children }) {
       <Head />
       <body className="bg-white text-black antialiased  dark:bg-gray-950 dark:text-white ">
         <ThemeProvider attribute="class" enableSystem>
-          {/*<SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-           */}
           <TopHeader />
-          <Header />
-          <Main>{children}</Main>
+          {/* <SearchProvider>*/}
+          <Header /> <Main>{children}</Main> {/* </SearchProvider>*/}
           <Footer />
-          {/*</SearchProvider>*/}
         </ThemeProvider>
       </body>
     </html>

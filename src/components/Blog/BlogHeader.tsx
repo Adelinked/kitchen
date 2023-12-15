@@ -2,14 +2,18 @@ import Image from "next/image";
 import { slug } from "github-slugger";
 import Tag from "@/components/Tag";
 import siteMetadata from "data/siteMetadata";
-import { Suspense } from "react";
+import { categories } from "data/categories";
 const BlogHeader = ({ blog }) => {
+  const tag = slug(blog?.tags?.[0]);
+  const category = categories.find((cat) =>
+    cat.subcategories.includes(tag)
+  )?.name;
   return (
     <div className="mb-4 text-center relative w-full h-[70vh] bg-dark">
       <div className="w-full z-10 flex flex-col items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
         <Tag
           name={blog?.tags?.[0]}
-          link={`/category/${slug(blog?.tags?.[0] ?? "")}`}
+          link={`/recipes/${category}/${slug(tag)}`}
           className="px-6 text-sm py-2"
         />
 

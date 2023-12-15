@@ -1,18 +1,18 @@
 "use client";
 import siteMetadata from "data/siteMetadata";
 //import { headerNavLinks } from "data/navLinks";
-
 import { categories } from "data/categories";
-
 import Link from "../Link";
 //import MobileNav from './MobileNav'
-import SearchButton from "../SearchButton";
+//import SearchButton from "../SearchButton";
 import Logo from "../Logo";
 //import { ThemeSwitcher } from "../themeSwitcher";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HumburgerMenu from "./hamburgerMenu";
 //import MobileNav from "./mobileNav";
 import dynamic from "next/dynamic";
+import SearchSqueleton from "../searchResults/searchSqueleton";
+import useInteraction from "@/app/hooks/useInteraction";
 
 const ThemeSwitcher = dynamic(() => import("../themeSwitcher"), {
   loading: () => (
@@ -22,6 +22,11 @@ const ThemeSwitcher = dynamic(() => import("../themeSwitcher"), {
       <div className="relative flex h-7 w-[72px] items-center rounded-full bg-gray-500 from-primary-500 to-primary-300 shadow-inner shadow-gray-600 dark:bg-gradient-to-br"></div>
     </div>
   ),
+  ssr: false,
+});
+
+const SearchButton = dynamic(() => import("../searchResults/SearchButton"), {
+  loading: () => <SearchSqueleton />,
   ssr: false,
 });
 
@@ -48,6 +53,7 @@ const ScrollProgressBar = dynamic(
 
 const Header = () => {
   const [displayListMenu, setDisplayListMenu] = useState(false);
+  const searchReady = useInteraction();
 
   return (
     <>
@@ -92,7 +98,6 @@ const Header = () => {
               </div>
             ))}
           </div>
-
           {displayListMenu ? (
             <MobileNav
               displayListMenu={displayListMenu}
@@ -100,7 +105,7 @@ const Header = () => {
             />
           ) : null}
 
-          <SearchButton />
+          {searchReady ? <SearchButton /> : <SearchSqueleton />}
           <ThemeSwitcher />
           <HumburgerMenu
             displayListMenu={displayListMenu}
