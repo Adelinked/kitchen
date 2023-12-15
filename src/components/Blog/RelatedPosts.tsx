@@ -39,7 +39,7 @@ const RelatedPosts = ({ category, exclude }) => {
           {renderedRelatedPosts && (
             <div className="w-full flex flex-col  justify-between">
               <h2 className="w-fit inline-block font-bold capitalize text-2xl md:text-4xl text-dark dark:text-light">
-                Related Posts
+                Related Recipes
               </h2>
 
               <div className="flex flex-col gap-8 mt-12">

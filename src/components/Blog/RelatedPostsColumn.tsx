@@ -46,7 +46,7 @@ const RelatedPostsColumn = ({ category, exclude }) => {
         <section className="w-full hidden lg:px-2 lg:flex flex-col items-center justify-center">
           <div className="w-full flex flex-col  justify-between">
             <h2 className="w-fit font-bold capitalize text-xl md:text-xl text-dark dark:text-light">
-              Related Posts
+              Related Recipes
             </h2>
 
             <div className="flex flex-col gap-8 mt-4">
