@@ -44,6 +44,7 @@ const ShareButtons = dynamic(
 const RenderMdx = dynamic(() => import("@/components/Blog/RenderMdx"), {
   loading: () => <></>,
 });*/
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return allBlogs.map((blog) => ({ slug: blog.slug }));

@@ -6,6 +6,8 @@ import { slug } from "github-slugger";
 import { categories } from "data/categories";
 import Link from "next/link";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const paths = [] as any;
   categories.forEach((category) => {

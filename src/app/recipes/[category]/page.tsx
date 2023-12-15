@@ -5,6 +5,8 @@ import { slug } from "github-slugger";
 
 import { categories } from "data/categories";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return categories.map((c) => ({
     category: c.name,
