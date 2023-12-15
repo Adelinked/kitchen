@@ -73,7 +73,7 @@ const MobileNav: React.FC<{
       }}
     >
       <div className="absolute left-[-30px] w-[250px] max-h-screen  bg-white dark:bg-gray-950 overflow-y-auto   ">
-        <Link href="/" className="flex items-center ml-[30px] mt-[0px]">
+        <Link href="/" className="flex items-center ml-[30px] mt-[-5px]">
           <Logo />
         </Link>
         <nav className=" pt-10 px-6 h-full text-black dark:text-white">
