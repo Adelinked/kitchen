@@ -257,6 +257,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     ...allBlogs,
     ...allBlogs,
     ...allBlogs,
+    ...allBlogs,
   ];
   const actions = blogs.map((post, index) => ({
     id: post.slug + index,
