@@ -14,7 +14,7 @@ export default function Home() {
         <h1 className="text-3xl font-extrabold leading-9 tracking-tight   sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           {siteMetadata.brandName}
         </h1>
-        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+        <p className="pl-3 text-lg leading-7 text-gray-500 dark:text-gray-400">
           {siteMetadata.description}
         </p>
       </div>

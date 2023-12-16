@@ -35,9 +35,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <KBarProvider options={{ enableHistory: true }} actions={actions}>
       <KBarPortal>
-        <KBarPositioner className="p-4 z-50  overlay-bg w-full">
-          <KBarAnimator className="w-full max-w-xl">
-            <div className="overflow-hidden rounded-2xl border border-gray-500 bg-white dark:border-gray-800 dark:bg-gray-900">
+        <KBarPositioner className="p-4 z-50 overlay-bg w-full">
+          <KBarAnimator className="w-full max-w-xl ">
+            <div className="overflow-hidden rounded-2xl border border-gray-500 dark:border-gray-800 bg-white  dark:bg-gray-900">
               <div className="flex items-center space-x-4 p-4">
                 <span className="block w-5">
                   <svg
@@ -55,7 +55,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     />
                   </svg>
                 </span>
-                <KBarSearch className="h-8 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:outline-none dark:text-gray-200 dark:placeholder-gray-500" />
+                <KBarSearch className="h-8 px-2 w-full bg-transparent text-gray-600 placeholder-gray-400 focus:outline-none dark:text-gray-200 dark:placeholder-gray-500" />
                 <kbd className="inline-block whitespace-nowrap rounded border px-1.5 align-middle font-medium leading-4 tracking-wide text-xs text-gray-400 border-gray-400">
                   ESC
                 </kbd>

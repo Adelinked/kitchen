@@ -74,15 +74,15 @@ const Header = () => {
         <div className="flex items-center space-x-6 leading-5 sm:space-x-6 ">
           <div className="hidden md:flex items-center justify-center space-x-4 leading-5 sm:space-x-4 flex-wrap px-2">
             {categories.map((cat) => (
-              <div className="relative" key={cat.name}>
+              <div className="relative group" key={cat.name}>
                 <Link
                   href={`/recipes/${cat.name}`}
-                  className="peer font-medium text-gray-900 dark:text-gray-100 md:block uppercase   "
+                  className="peer font-medium text-gray-900 dark:text-gray-100 md:block uppercase  group-hover:text-primary-500  "
                 >
                   {cat.name}
                 </Link>
 
-                <div className="hidden border-[1px] border-primary-500  z-50 peer-hover:flex  hover:flex   absolute  flex-col gap-4 py-4  bg-white dark:bg-gray-900">
+                <div className="hidden border-[1px] border-primary-500 z-50 peer-hover:flex hover:flex absolute flex-col gap-4 py-4 bg-white dark:bg-gray-900">
                   {[...cat.subcategories, "View All"].map((subcat) => (
                     <Link
                       key={subcat}
