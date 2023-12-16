@@ -9,7 +9,7 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return categories.map((c) => ({
-    category: c.name,
+    category: slug(c.name),
   }));
 }
 

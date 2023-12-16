@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   const paths = [] as any;
   categories.forEach((category) => {
     category.subcategories?.forEach((subcategory) => {
-      paths.push({ category: category.name, slug: subcategory });
+      paths.push({ category: slug(category.name), slug: slug(subcategory) });
     });
   });
   return paths;
