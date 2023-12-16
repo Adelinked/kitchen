@@ -10,7 +10,7 @@ const RecentPosts = ({ blogs: sortedBlogs }) => {
           The Latest
         </h2>
         <Link
-          href="/category/all"
+          href="/recipes/all"
           className="inline-block font-medium text-primary-600 dark:text-primary-300 underline underline-offset-2 text-base md:text-lg"
         >
           view all

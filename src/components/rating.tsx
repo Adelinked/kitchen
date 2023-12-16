@@ -20,7 +20,7 @@ const Rating = ({ rating }) => {
     }
   });
 
-  return <div className="flex items-center text-primary-500">{stars}</div>;
+  return <div className="flex items-center text-transparent">{stars}</div>;
 };
 
 export default Rating;

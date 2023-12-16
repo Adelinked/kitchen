@@ -1,9 +1,5 @@
-import { format, parseISO } from "date-fns";
 import React from "react";
-import { slug } from "github-slugger";
-import Link from "../Link";
-import ShareButtons from "../social-icons/shareButtons";
-import siteMetadata from "data/siteMetadata";
+
 //import ViewCounter from "./ViewCounter";
 
 const BlogMajor = ({ blog }) => {

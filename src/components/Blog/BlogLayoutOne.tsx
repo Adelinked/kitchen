@@ -40,7 +40,7 @@ const BlogLayoutOne = ({ blog }) => {
           name={blog.tags[0]}
           className="px-6 text-xs  sm:text-sm py-1 sm:py-2  "
         />
-        <Link href={`/${blog.slug}`} className="mt-6">
+        <Link href={`/${blog.slug}`} className="mt-6" title={blog.title}>
           <h2 className="font-bold capitalize text-sm xs:text-base sm:text-xl md:text-2xl text-light mt-2 sm:mt-4">
             <span>{blog.title}</span>
           </h2>

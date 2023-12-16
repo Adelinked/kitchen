@@ -10,6 +10,7 @@ const BlogLayoutFive = ({ blog }) => {
       <Link
         href={`/${blog.slug}`}
         className="h-full rounded-xl overflow-hidden"
+        title={blog.title}
       >
         <Image
           src={blog.image.filePath.replace("../public", "")}
@@ -27,8 +28,8 @@ const BlogLayoutFive = ({ blog }) => {
         <span className="uppercase text-primary-600 dark:text-primary-300 font-semibold text-xs">
           {blog.tags[0]}
         </span>
-        <Link href={`${blog.slug}`} className="inline-block   ">
-          <h2 className=" capitalize    text-sm leading-4">
+        <Link href={`${blog.slug}`} className="inline-block" title={blog.title}>
+          <h2 className="capitalize text-sm leading-4">
             <span>{blog.title}</span>
           </h2>
         </Link>

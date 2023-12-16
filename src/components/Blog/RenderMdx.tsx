@@ -2,9 +2,10 @@
 import React from "react";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
-
+import Link from "../Link";
 const mdxComponents = {
   Image,
+  Link,
 };
 
 const RenderMdx = ({ blog }) => {

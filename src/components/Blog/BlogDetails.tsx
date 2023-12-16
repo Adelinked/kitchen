@@ -1,6 +1,5 @@
 import { format, parseISO } from "date-fns";
 import React from "react";
-import { slug } from "github-slugger";
 import Link from "../Link";
 //import ViewCounter from "./ViewCounter";
 

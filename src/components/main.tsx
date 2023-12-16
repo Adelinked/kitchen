@@ -3,7 +3,7 @@ const Main = ({ children }) => {
   return (
     <Suspense
       fallback={
-        <div className="mt-20 text-2xl font-bold flex justify-center items-center">
+        <div className="mt-20 text-2xl font-bold flex justify-center items-center min-h-screen">
           Loading...
         </div>
       }

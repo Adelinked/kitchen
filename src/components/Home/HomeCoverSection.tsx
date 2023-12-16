@@ -35,7 +35,7 @@ const HomeCoverSection = ({ blog }) => {
 
         <div className="w-full lg:w-3/4 p-6 sm:p-8 md:p-12  lg:p-16 flex flex-col items-start justify-center z-0 text-light">
           <Tag link={`/recipes/${category}/${slug(tag)}`} name={blog.tags[0]} />
-          <Link href={`/${blog.slug}`} className="mt-6">
+          <Link href={`/${blog.slug}`} className="mt-6" title={blog.title}>
             <h1 className="font-bold capitalize text-lg sm:text-xl md:text-3xl lg:text-4xl">
               <span className=" ">{blog.title}</span>
             </h1>

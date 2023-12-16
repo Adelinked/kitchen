@@ -12,6 +12,7 @@ const BlogLayoutTwo = ({ blog }) => {
     <div className="group grid grid-cols-12 w-full gap-4 items-center text-dark dark:text-light">
       <Link
         href={`/${blog.slug}`}
+        title={blog.title}
         className=" col-span-12 w-full  lg:col-span-4 h-full rounded-xl overflow-hidden"
       >
         <Image
@@ -30,7 +31,11 @@ const BlogLayoutTwo = ({ blog }) => {
         <span className="inline-block w-full uppercase text-primary-600 dark:text-primary-300 font-semibold text-xs sm:text-sm">
           {blog.tags[0]}
         </span>
-        <Link href={`/${blog.slug}`} className="inline-block my-1">
+        <Link
+          href={`/${blog.slug}`}
+          className="inline-block my-1"
+          title={blog.title}
+        >
           <h2 className="font-semibold capitalize text-base sm:text-lg">
             <span>{blog.title}</span>
           </h2>
