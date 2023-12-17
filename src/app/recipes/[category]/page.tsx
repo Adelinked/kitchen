@@ -1,12 +1,11 @@
 import { allBlogs } from "contentlayer/generated";
-import BlogLayoutThree from "@/components/Blog/BlogLayoutThree";
+//import BlogLayoutThree from "@/components/Blog/BlogLayoutThree";
 import Categories from "@/components/Blog/Categories";
 import { slug } from "github-slugger";
-
 import { categories } from "data/categories";
-import { redirect } from "next/navigation";
 import Link from "next/link";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import BlogsCategory from "@/components/blogsCategory";
 
 export const dynamicParams = false;
 
@@ -83,13 +82,37 @@ const CategoryPage = ({ params }) => {
         categoryPage={category === "all"}
       />
 
-      <div className="grid  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 grid-rows-2 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
-        {blogs.map((blog, index) => (
+      {/*<div className="grid  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 grid-rows-2 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
+        {displayedBlogs.map((blog, index) => (
           <article key={index} className="col-span-1 row-span-1 relative">
             <BlogLayoutThree blog={blog} />
           </article>
         ))}
-      </div>
+        </div>*/}
+      <BlogsCategory
+        blogs={[
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+          ...blogs,
+        ]}
+      />
     </article>
   );
 };

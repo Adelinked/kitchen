@@ -24,6 +24,7 @@ const siteMetadata = {
   linkedin: "https://www.linkedin.com/TastyMingle",
   locale: "en-US",
   defaulBlogImage: "/blogs/default-image.jpeg",
+  postPerPage: 9,
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
