@@ -3,9 +3,11 @@ import React from "react";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "../Link";
+import SiteName from "../siteName";
 const mdxComponents = {
   Image,
   Link,
+  SiteName,
 };
 
 const RenderMdx = ({ blog }) => {
@@ -13,6 +15,7 @@ const RenderMdx = ({ blog }) => {
 
   return (
     <div
+      id="article"
       className="col-span-12  lg:col-span-6  prose sm:prose-base md:prose-lg max-w-max
     prose-blockquote:bg-primary-600/20 
     prose-blockquote:p-2

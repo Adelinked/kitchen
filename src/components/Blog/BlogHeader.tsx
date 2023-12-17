@@ -17,7 +17,10 @@ const BlogHeader = ({ blog }) => {
           className="px-6 text-sm py-2"
         />
 
-        <h1 className="mt-6 font-semibold capitalize text-light text-2xl md:text-3xl lg:text-5xl leading-normal w-5/6">
+        <h1
+          id="article-heading"
+          className="mt-6 font-semibold capitalize text-light text-2xl md:text-3xl lg:text-5xl leading-normal w-5/6"
+        >
           {blog?.title}
         </h1>
       </div>

@@ -1,0 +1,13 @@
+/* print-styles.css */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: red;
+}
+
+/* Add more styles as needed */
+
+/* Hide elements not needed in print */
+body > *:not(#article-heading):not(#article) {
+  display: none;
+}

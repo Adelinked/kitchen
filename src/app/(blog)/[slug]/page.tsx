@@ -195,7 +195,7 @@ export default async function Page({ params }) {
 
           <div className="col-span-12 lg:col-span-3 mt-4 ">
             <div className="h-[80vh] bg-primary-600 flex justify-center items-center ">
-              <h2 className="text-3xl font-bold text-white">Moh Ads</h2>
+              <h2 className="text-3xl font-bold text-white ads">Moh Ads</h2>
             </div>
             <div
               data-section-id="related-posts-column"
