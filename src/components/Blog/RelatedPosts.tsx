@@ -5,9 +5,16 @@ import { allBlogs } from "contentlayer/generated";
 import useIntersectingSection from "@/app/hooks/useIntersectingSection";
 
 const RelatedPosts = ({ category, exclude }) => {
-  let categoryBlogs = allBlogs.filter(
-    (blog) => blog.tags?.[0] === category && blog.slug !== exclude
-  );
+  let categoryBlogs = allBlogs
+    .map((blog) => ({
+      slug: blog.slug,
+      tags: blog.tags,
+      title: blog.title,
+      image: blog.image,
+      totalTime: blog.totalTime,
+      rating: blog.rating,
+    }))
+    .filter((blog) => blog.tags?.[0] === category && blog.slug !== exclude);
 
   const [renderedRelatedPosts, setRendredRelatedPosts] = useState(false);
 

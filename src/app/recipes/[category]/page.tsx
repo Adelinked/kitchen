@@ -6,7 +6,6 @@ import { categories } from "data/categories";
 import Link from "next/link";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import BlogsCategory from "@/components/blogsCategory";
-import { pick } from "contentlayer/utils";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -48,9 +47,14 @@ const CategoryPage = ({ params }) => {
         return allCategories.includes(slugified);
       });
     })
-    .map((blog) =>
-      pick(blog, ["title", "slug", "image", "tags", "totalTime", "rating"])
-    );
+    .map((blog) => ({
+      slug: blog.slug,
+      tags: blog.tags,
+      title: blog.title,
+      image: blog.image,
+      totalTime: blog.totalTime,
+      rating: blog.rating,
+    }));
 
   return (
     <article className="mt-12 flex flex-col text-dark dark:text-light">

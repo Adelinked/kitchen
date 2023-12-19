@@ -4,24 +4,18 @@ import { allBlogs } from ".contentlayer/generated";
 import HomeCoverSection from "@/components/Home/HomeCoverSection";
 import FeaturedPosts from "@/components/Home/FeaturedPosts";
 import RecentPosts from "@/components/Home/RecentPosts";
-import { pick } from "contentlayer/utils";
 //import { sortBlogs } from "@/utils";
 
 export default function Home() {
-  const sortedBlogs = allBlogs
-    .slice(0, 10)
-    .map((blog) =>
-      pick(blog, [
-        "title",
-        "slug",
-        "image",
-        "tags",
-        "description",
-        "rating",
-        "totalTime",
-        "rating",
-      ])
-    );
+  const sortedBlogs = allBlogs.slice(0, 10).map((blog) => ({
+    slug: blog.slug,
+    tags: blog.tags,
+    title: blog.title,
+    image: blog.image,
+    description: blog.description,
+    totalTime: blog.totalTime,
+    rating: blog.rating,
+  }));
   return (
     <div className="">
       <div className="space-y-2 pb-8 pt-6 md:space-y-5 sm:mx-10 mx-5">

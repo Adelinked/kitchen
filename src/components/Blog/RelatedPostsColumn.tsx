@@ -33,9 +33,16 @@ const RelatedPostsColumn = ({ category, exclude }) => {
     return null;
   }
 
-  let categoryBlogs = allBlogs.filter(
-    (blog) => blog.tags?.[0] === category && blog.slug !== exclude
-  );
+  let categoryBlogs = allBlogs
+    .map((blog) => ({
+      slug: blog.slug,
+      tags: blog.tags,
+      title: blog.title,
+      image: blog.image,
+      totalTime: blog.totalTime,
+      rating: blog.rating,
+    }))
+    .filter((blog) => blog.tags?.[0] === category && blog.slug !== exclude);
 
   if (!categoryBlogs || categoryBlogs.length < 1) {
     return null;

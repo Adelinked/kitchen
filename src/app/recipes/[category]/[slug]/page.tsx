@@ -39,15 +39,24 @@ const CategoryPage = ({ params }) => {
     "all",
     ...(categories.find((c) => c.name === category)?.subcategories ?? []),
   ];
-  const blogs = allBlogs.filter((blog) => {
-    return blog.tags?.some((tag) => {
-      /*if (slugParam === "all") {
+  const blogs = allBlogs
+    .filter((blog) => {
+      return blog.tags?.some((tag) => {
+        /*if (slugParam === "all") {
         console.log(allCategories);
         return allCategories.includes(tag);
       }*/
-      return tag === slugParam;
-    });
-  });
+        return tag === slugParam;
+      });
+    })
+    .map((blog) => ({
+      slug: blog.slug,
+      tags: blog.tags,
+      title: blog.title,
+      image: blog.image,
+      totalTime: blog.totalTime,
+      rating: blog.rating,
+    }));
 
   return (
     <article className="mt-12 flex flex-col text-dark dark:text-light">

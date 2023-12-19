@@ -16,7 +16,6 @@ const BlogsCategory = ({ blogs }) => {
   // Slice the elements to display for the current page
 
   const displayedBlogs = blogs.slice(startIndex, endIndex);
-  console.log("displayedBlogs", displayedBlogs);
   return (
     <>
       <div
