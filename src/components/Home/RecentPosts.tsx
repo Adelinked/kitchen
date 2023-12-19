@@ -11,7 +11,7 @@ const RecentPosts = ({ blogs: sortedBlogs }) => {
         </h2>
         <Link
           href="/recipes/all"
-          className="inline-block font-medium text-primary-600 dark:text-primary-300 underline underline-offset-2 text-base md:text-lg"
+          className="inline-block font-medium text-primary-700 dark:text-primary-300 underline underline-offset-2 text-base md:text-lg"
         >
           view all
         </Link>
@@ -21,7 +21,7 @@ const RecentPosts = ({ blogs: sortedBlogs }) => {
         {sortedBlogs.map((blog, index) => {
           return (
             <article key={index} className="col-span-1 row-span-1 relative">
-              <BlogLayoutThree blog={blog} />
+              <BlogLayoutThree blog={blog} homepage />
             </article>
           );
         })}

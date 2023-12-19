@@ -8,10 +8,7 @@ const Main = ({ children }) => {
         </div>
       }
     >
-      <main className="min-h-screen pt-10">
-        {children}
-        <div data-section-id="footer" />
-      </main>
+      <main className="min-h-screen pt-16">{children}</main>
     </Suspense>
   );
 };
