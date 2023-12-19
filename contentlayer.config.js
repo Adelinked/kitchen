@@ -1,8 +1,8 @@
 import { makeSource, defineDocumentType } from "@contentlayer/source-files";
 import readingTime from "reading-time";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeSlug from "rehype-slug";
+//import rehypeAutolinkHeadings from "rehype-autolink-headings";
+//import rehypePrettyCode from "rehype-pretty-code";
+//import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import GithubSlugger from "github-slugger";
 
@@ -167,10 +167,10 @@ export const Pages = defineDocumentType(() => ({
   },
 }));
 
-const codeOptions = {
+/*const codeOptions = {
   theme: "github-dark",
   grid: false,
-};
+};*/
 
 export default makeSource({
   /* options */
@@ -178,11 +178,11 @@ export default makeSource({
   documentTypes: [Blog, Pages],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [
+    /*rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: "append" }],
       [rehypePrettyCode, codeOptions],
-    ],
+    ],*/
   },
   onSuccess: async (importData) => {
     /*const { allBlogs } = await importData();
