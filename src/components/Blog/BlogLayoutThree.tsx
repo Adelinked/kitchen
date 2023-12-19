@@ -4,7 +4,7 @@ import React from "react";
 import { FaRegClock } from "react-icons/fa6";
 import Rating from "../rating";
 
-const BlogLayoutThree = ({ blog, homepage = false }) => {
+const BlogLayoutThree = ({ blog, index = 99, homepage = false }) => {
   return (
     <div className="group flex flex-col items-center text-dark dark:text-light">
       <Link
@@ -21,7 +21,7 @@ const BlogLayoutThree = ({ blog, homepage = false }) => {
           height={blog.image.height}
           className=" aspect-[4/3] w-full h-full object-cover object-center  group-hover:scale-105 transition-all ease duration-300 "
           sizes="(max-width: 640px) 100vw,(max-width: 1024px) 50vw, 33vw"
-          priority={!homepage}
+          priority={!homepage && index === 0}
         />
       </Link>
 

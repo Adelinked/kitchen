@@ -24,7 +24,7 @@ const BlogsCategory = ({ blogs }) => {
       >
         {displayedBlogs.map((blog, index) => (
           <article key={index} className="col-span-1 row-span-1 relative">
-            <BlogLayoutThree blog={blog} />
+            <BlogLayoutThree key={blog.slug} blog={blog} index={index} />
           </article>
         ))}
       </div>
