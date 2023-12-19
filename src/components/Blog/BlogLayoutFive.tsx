@@ -3,6 +3,8 @@ import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { FaRegClock } from "react-icons/fa6";
+import Rating from "../rating";
 
 const BlogLayoutFive = ({ blog }) => {
   return (
@@ -33,6 +35,17 @@ const BlogLayoutFive = ({ blog }) => {
             <span>{blog.title}</span>
           </h2>
         </Link>
+        <div className="flex w-full justify-between  capitalize text-gray2 dark:text-light/50 font-semibold  text-xs sm:text-base">
+          <div className="flex items-center gap-1">
+            {blog?.totalTime ? (
+              <>
+                <FaRegClock className="text-primary-600" />
+                {blog?.totalTime}
+              </>
+            ) : null}
+          </div>
+          <Rating rating={blog.rating} />
+        </div>
       </div>
     </div>
   );
